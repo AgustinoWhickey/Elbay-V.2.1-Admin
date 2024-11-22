@@ -27,9 +27,9 @@
 							</div>
 
 							<div class="media-body">
-								<div class="media-title font-weight-semibold">Admin Pajak</div>
+								<div class="media-title font-weight-semibold">Admin Lawless</div>
 								<div class="font-size-xs opacity-50">
-									<i class="icon-pin font-size-sm"></i> &nbsp;Waisai
+									<i class="icon-pin font-size-sm"></i> &nbsp;Menteng
 								</div>
 							</div>
 
@@ -57,85 +57,73 @@
 							</a>
 						</li>
 						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-stack"></i> <span>PBB</span></a>
+							<a href="#" class="nav-link"><i class="icon-stack"></i> <span>Produk</span></a>
 
 							<ul class="nav nav-group-sub" data-submenu-title="Starter kit">
-								<li class="nav-item nav-item-submenu">
-									<a href="#" class="nav-link">Persiapan</a>
-									<ul class="nav nav-group-sub">
-										<li class="nav-item"><a href="/admin/pbb-persiapan-tabel-blok" class="nav-link {{ ($slug == 'pbb_persiapan_blok' ? 'active' : '') }}">Tabel Blok</a></li>
-										<li class="nav-item"><a href="/admin/pbb-perubahan-nir" class="nav-link">Perubahan NIR</a></li>
-										<li class="nav-item"><a href="/admin/pbb-peta-znt" class="nav-link">Peta ZNT</a></li>
-										<li class="nav-item"><a href="/admin/pbb-znt-massal" class="nav-link">ZNT Massal</a></li>
-									</ul>
+								<li class="nav-item">
+									<a href="#" class="nav-link">Kategori</a>
 								</li>
-								<li class="nav-item nav-item-submenu">
-									<a href="#" class="nav-link">Pendataan</a>
-									<ul class="nav nav-group-sub">
-										<li class="nav-item"><a href="/admin/pbb-pendataan-spop" class="nav-link {{ ($slug == 'pbb_pendataan_spop' ? 'active' : '') }}">Laporan SPOP</a></li>
-										<li class="nav-item"><a href="/admin/pbb-perubahan-data-objek" class="nav-link">Perubahan Data Objek</a></li>
-										<li class="nav-item"><a href="/admin/pbb-perubahan-nop" class="nav-link">Perubahan NOP</a></li>
-									</ul>
+								<li class="nav-item">
+									<a href="#" class="nav-link">Menu</a>
 								</li>
-								<li class="nav-item nav-item-submenu">
-									<a href="#" class="nav-link">Penilaian</a>
-									<ul class="nav nav-group-sub">
-										<li class="nav-item"><a href="/admin/pbb-penilaian-individu" class="nav-link">Penilaian Individu</a></li>
-										<li class="nav-item"><a href="/admin/pbb-penilaian-massal" class="nav-link">Penilaian Massal</a></li>
-									</ul>
-								</li>
-								<li class="nav-item nav-item-submenu">
-									<a href="#" class="nav-link">Penetapan</a>
-									<ul class="nav nav-group-sub">
-										<li class="nav-item"><a href="/admin/pbb-penetapan-sppt" class="nav-link">Daftar SPPT</a></li>
-										<li class="nav-item"><a href="../seed/sidebar_content_right.html" class="nav-link">Minimal PBB</a></li>
-										<li class="nav-item"><a href="../seed/sidebar_content_right.html" class="nav-link">Tarif PBB</a></li>
-										<li class="nav-item"><a href="../seed/sidebar_content_right.html" class="nav-link">Penetapan Terseleksi</a></li>
-										<li class="nav-item"><a href="../seed/sidebar_content_right.html" class="nav-link">Penetapan Massal</a></li>
-										<li class="nav-item"><a href="../seed/sidebar_content_right.html" class="nav-link">Daftar NJOP</a></li>
-										<li class="nav-item"><a href="../seed/sidebar_content_right.html" class="nav-link">Daftar NIR</a></li>
-									</ul>
-								</li>
-								<li class="nav-item nav-item-submenu">
-									<a href="#" class="nav-link">Pembayaran</a>
-									<ul class="nav nav-group-sub">
-										<li class="nav-item"><a href="../seed/sidebar_right_hidden.html" class="nav-link">Laporan Pembayaran</a></li>
-									</ul>
+								<li class="nav-item">
+									<a href="#" class="nav-link">Item</a>
 								</li>
 							</ul>
 						</li>
 						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-table2"></i> <span>BPHTB</span></a>
+							<a href="#" class="nav-link"><i class="icon-table2"></i> <span>Transaksi</span></a>
 
 							<ul class="nav nav-group-sub" data-submenu-title="Starter kit">
 								<li class="nav-item">
-									<a href="#" class="nav-link">Validasi</a>
+									<a href="#" class="nav-link">Sales</a>
 								</li>
 								<li class="nav-item">
-									<a href="#" class="nav-link">Pembayaran</a>
-								</li>
-								<li class="nav-item">
-									<a href="#" class="nav-link">Master</a>
+									<a href="#" class="nav-link">Stock In</a>
 								</li>
 							</ul>
 						</li>
 						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-gear"></i> <span>Retribusi </span></a>
+							<a href="#" class="nav-link"><i class="icon-file-text"></i> <span>Laporan</span></a>
 
 							<ul class="nav nav-group-sub" data-submenu-title="Starter kit">
 								<li class="nav-item">
-									<a href="/admin/retribusi-wisata" class="nav-link">Wisata</a>
+									<a href="#" class="nav-link">Sales</a>
 								</li>
-								<li class="nav-item nav-item-submenu">
-									<a href="#" class="nav-link">Rumah Sakit</a>
-									<ul class="nav nav-group-sub">
-										<li class="nav-item"><a href="/admin/retribusi-rumah-sakit" class="nav-link">Daftar Rumah Sakit</a></li>
-										<li class="nav-item"><a href="/admin/user-rumah-sakit" class="nav-link">Daftar User Rumah Sakit</a></li>
-									</ul>
+								<li class="nav-item">
+									<a href="#" class="nav-link">Stocks</a>
 								</li>
 							</ul>
 						</li>
+						<li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-city
+							"></i> <span>Cabang</span></a>
 
+							<ul class="nav nav-group-sub" data-submenu-title="Starter kit">
+								<li class="nav-item">
+									<a href="#" class="nav-link">Kelola Cabang</a>
+								</li>
+								<li class="nav-item">
+									<a href="#" class="nav-link">Pegawai Cabang</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a href="/admin/dashboard" class="nav-link {{ ($slug == 'admin_home' ? 'active' : '') }}">
+								<i class="icon-truck"></i>
+								<span>
+									Supplier
+								</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/admin/dashboard" class="nav-link {{ ($slug == 'admin_home' ? 'active' : '') }}">
+								<i class="icon-user"></i>
+								<span>
+									User
+								</span>
+							</a>
+						</li>
 					</ul>
 				</div>
 				<!-- /main navigation -->

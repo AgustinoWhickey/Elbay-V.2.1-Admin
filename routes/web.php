@@ -2,9 +2,10 @@
 
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
 use App\Models\Category;
 use App\Models\User;
+
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,10 @@ use App\Models\User;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+/* Admin */
+Route::get('/dashboard', [DashboardController::class, 'index']);
+
 
 Route::get('/', function () {
     return view('home', ['title' => 'Home']);

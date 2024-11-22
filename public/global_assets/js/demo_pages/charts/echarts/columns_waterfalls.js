@@ -75,7 +75,7 @@ var EchartsColumnsWaterfalls = function() {
 
                 // Add legend
                 legend: {
-                    data: ['Evaporation', 'Precipitation'],
+                    data: ['Sales', 'Purchase'],
                     itemHeight: 8,
                     itemGap: 20,
                     textStyle: {
@@ -142,7 +142,7 @@ var EchartsColumnsWaterfalls = function() {
                 // Add series
                 series: [
                     {
-                        name: 'Evaporation',
+                        name: 'Sales',
                         type: 'bar',
                         data: [2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
                         itemStyle: {
@@ -161,7 +161,7 @@ var EchartsColumnsWaterfalls = function() {
                         }
                     },
                     {
-                        name: 'Precipitation',
+                        name: 'Purchase',
                         type: 'bar',
                         data: [2.6, 5.9, 9.0, 26.4, 58.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3],
                         itemStyle: {

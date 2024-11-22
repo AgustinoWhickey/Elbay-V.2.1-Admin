@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-md navbar-dark">
 		<div class="navbar-brand">
-			<b>BP2RD</b>
+			<b>Elbay Admin</b>
 		</div>
 
 		<div class="d-md-none">
@@ -128,7 +128,7 @@
 				<li class="nav-item dropdown dropdown-user">
 					<a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
 						<img src="{{ asset('global_assets/images/placeholders/placeholder.jpg') }}" class="rounded-circle" alt="">
-						<span>Objek Pajak</span>
+						<span>Nita Gunawan</span>
 					</a>
 
 					<div class="dropdown-menu dropdown-menu-right">
