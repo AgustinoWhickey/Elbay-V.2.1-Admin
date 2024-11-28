@@ -1,10 +1,12 @@
 <?php
 
 use App\Models\Post;
-use Illuminate\Support\Facades\Route;
-use App\Models\Category;
 use App\Models\User;
+use App\Models\Category;
+use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 
 /*
@@ -19,7 +21,7 @@ use App\Http\Controllers\Admin\DashboardController;
 */
 
 /* Admin */
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('loggedin');
 
 
 Route::get('/', function () {
@@ -59,4 +61,12 @@ Route::get('/authors/{user:username}', function(User $user){
     ]);
 });
 
+
+/* Authentication */
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'login']);
+
+Route::get('/set_login/{email}', [LoginController::class, 'set_login']);
+
+Route::post('/logout', [LoginController::class, 'logout']);
 
