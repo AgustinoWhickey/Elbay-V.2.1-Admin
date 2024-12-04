@@ -14,6 +14,7 @@
     <link href="{{ asset('assets/css/layout.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/components.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/colors.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('global_assets/css/icons/fontawesome/styles.min.css') }}" rel="stylesheet" type="text/css">
     <!-- /global stylesheets -->
 
@@ -25,6 +26,7 @@
 	<script src="{{ asset('global_assets/js/plugins/notifications/sweet_alert.min.js') }}"></script>
 
     <script src="{{ asset('global_assets/js/demo_pages/extra_sweetalert.js') }}"></script>
+    <script src="{{ asset('global_assets/js/demo_pages/jquery.loading.min.js') }}"></script>
     
   </head>
   <body>
