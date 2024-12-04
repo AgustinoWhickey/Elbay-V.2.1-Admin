@@ -68,5 +68,7 @@ Route::post('/login', [LoginController::class, 'login']);
 
 Route::get('/set_login/{email}', [LoginController::class, 'set_login']);
 
+Route::post('/register', [LoginController::class, 'register']);
+
 Route::post('/logout', [LoginController::class, 'logout']);
 
