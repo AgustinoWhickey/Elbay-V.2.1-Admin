@@ -29,6 +29,21 @@ class LoginController extends Controller
 
     }
 
+    public function register(Request $request) 
+    {
+        $data = [
+            'email' => $request->email,
+            'username' => $request->username,
+            'company' => $request->company,
+            'image' => $request->image,
+            'password' => $request->password,
+            'X-API-KEY' => 'restapi123'
+        ];
+
+        api_data_post($_ENV['API_URL']."/register", $data);
+
+    }
+
     public function set_login(string $email){
 
 		$userData = json_decode(api_data_get($_ENV['API_URL'].'/login?email='.$email.'&X-API-KEY=restapi123'));
