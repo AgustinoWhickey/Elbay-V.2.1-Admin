@@ -31,18 +31,36 @@ class LoginController extends Controller
 
     public function register(Request $request) 
     {
+        $filename = '';
+        $image = $request->image;
+		if($request->hasfile('image'))
+        {
+            $file = $request->file('image');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = $request->username_reg.'-'.$request->company_name_reg.'.'.$extenstion;
+            $file->move('assets/images/company/', $filename);
+        }
+
         $data = [
-            'email' => $request->email,
-            'username' => $request->username,
-            'company' => $request->company,
-            'image' => $request->image,
-            'password' => $request->password,
+            'email' => $request->email_reg,
+            'phone_number' => $request->phone_reg,
+            'username' => $request->username_reg,
+            'company' => $request->company_name_reg,
+            'image' => $filename,
+            'password' => $request->password_reg,
             'X-API-KEY' => 'restapi123'
         ];
 
         api_data_post($_ENV['API_URL']."/register", $data);
 
     }
+
+    public function set_register(string $token){
+        
+		$userData = json_decode(api_data_get($_ENV['API_URL'].'/register?token='.$token.'&X-API-KEY=restapi123'));
+		
+		return redirect()->intended('/login');
+	}
 
     public function set_login(string $email){
 
@@ -51,8 +69,13 @@ class LoginController extends Controller
 		$data = [
 			'email' => $userData->data[0]->email,
 			'user_id' => $userData->data[0]->id,
-			'name' => $userData->data[0]->name,
+			'username' => $userData->data[0]->username,
+			'company_id' => $userData->data[0]->company_id,
+			'company_name' => $userData->data[0]->company_name,
+			'address' => $userData->data[0]->address,
+			'logo' => $userData->data[0]->logo,
 			'role_id' => $userData->data[0]->role_id,
+			'is_active' => $userData->data[0]->is_active,
 		];
 
         Session::put('data', $data);
