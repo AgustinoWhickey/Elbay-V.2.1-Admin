@@ -23,7 +23,7 @@
     <!-- /core JS files -->
 
     <!-- Theme JS files -->
-	<script src="{{ asset('global_assets/js/plugins/notifications/sweet_alert.min.js') }}"></script>
+	  <script src="{{ asset('global_assets/js/plugins/notifications/sweet_alert.min.js') }}"></script>
 
     <script src="{{ asset('global_assets/js/demo_pages/extra_sweetalert.js') }}"></script>
     <script src="{{ asset('global_assets/js/demo_pages/jquery.loading.min.js') }}"></script>
