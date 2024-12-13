@@ -33,9 +33,6 @@
 								</div>
 							</div>
 
-							<!-- <div class="ml-3 align-self-center">
-								<a href="#" class="text-white"><i class="icon-cog3"></i></a>
-							</div> -->
 						</div>
 					</div>
 				</div>
@@ -95,13 +92,12 @@
 								</li>
 							</ul>
 						</li>
-						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-city
-							"></i> <span>Cabang</span></a>
+						<li class="nav-item nav-item-submenu {{ in_array($slug, ['kelola_cabang', 'hotel_transaksi_harian']) ? 'nav-item-open' : '' }}">
+							<a href="#" class="nav-link"><i class="icon-city"></i> <span>Cabang</span></a>
 
-							<ul class="nav nav-group-sub" data-submenu-title="Starter kit">
+							<ul class="nav nav-group-sub" style="display: {{ in_array($slug, ['kelola_cabang', 'hotel_transaksi_harian']) ? 'block' : 'none' }};" data-submenu-title="Starter kit">
 								<li class="nav-item">
-									<a href="#" class="nav-link">Kelola Cabang</a>
+									<a href="/branch" class="nav-link {{ ($slug == 'kelola_cabang' ? 'active' : '') }}">Kelola Cabang</a>
 								</li>
 								<li class="nav-item">
 									<a href="#" class="nav-link">Pegawai Cabang</a>
