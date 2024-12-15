@@ -48,7 +48,6 @@
             <div class="form-outline mb-4">
                 <input type="password" id="password_confirm_reg" name="password_confirm_reg" placeholder="Confirm Password" class="form-control form-control-lg" />
             </div>
-            <!-- <button class="btn btn-primary btn-lg btn-block" id="register">Register</button> -->
             <button class="btn btn-primary btn-lg btn-block" type="submit" id="register-new">Register</button>
             <br>
             <div class="d-flex justify-content-around align-items-center mb-4">
@@ -184,7 +183,7 @@
                 type: 'info'
             });
         }
-      });
+    });
 
     function previewImage(){
         const image = document.querySelector('#image');
