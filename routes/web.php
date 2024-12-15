@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\BranchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,6 @@ use App\Http\Controllers\Admin\DashboardController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-/* Admin */
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('loggedin');
 
 
 Route::get('/', function () {
@@ -72,4 +70,9 @@ Route::post('/register', [LoginController::class, 'register']);
 Route::get('/set_register/{token}', [LoginController::class, 'set_register']);
 
 Route::post('/logout', [LoginController::class, 'logout']);
+
+/* Admin */
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('loggedin');
+
+Route::resource('/branch', BranchController::class)->middleware('loggedin');
 
