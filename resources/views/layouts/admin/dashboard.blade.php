@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    
     <title>Elbay Admin</title>
 
     <!-- Global stylesheets -->
@@ -15,6 +17,8 @@
     <link href="{{ asset('assets/css/layout.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/components.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/colors.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
     <!-- /global stylesheets -->
 
     <!-- Core JS files -->
@@ -33,6 +37,12 @@
     <script src="{{ asset('global_assets/js/plugins/extensions/jquery_ui/interactions.min.js') }}"></script>
     <script src="{{ asset('global_assets/js/plugins/forms/selects/select2.min.js') }}"></script>
     <script src="{{ asset('global_assets/js/plugins/visualization/echarts/echarts.min.js') }}"></script>
+
+    <script src="{{ asset('js/datatables.min.js') }} "></script>
+
+    <script src="{{ asset('global_assets/js/plugins/notifications/sweet_alert.min.js') }}"></script>
+
+    <script src="{{ asset('global_assets/js/demo_pages/extra_sweetalert.js') }}"></script>
 
     <script src="{{ asset('assets/js/app.js') }} "></script>
     <script src="{{ asset('global_assets/js/demo_pages/dashboard.js') }} "></script>

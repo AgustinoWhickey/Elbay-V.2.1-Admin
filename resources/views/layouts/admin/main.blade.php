@@ -14,6 +14,7 @@
     <link href="{{ asset('assets/css/layout.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/components.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/colors.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('global_assets/css/icons/fontawesome/styles.min.css') }}" rel="stylesheet" type="text/css">
     <!-- /global stylesheets -->
 
@@ -35,8 +36,9 @@
     <script src="{{ asset('global_assets/js/plugins/forms/selects/select2.min.js') }}"></script>
     <script src="{{ asset('global_assets/js/plugins/forms/validation/validate.min.js') }} "></script>
     <script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }} "></script>
-    <script src="{{ asset('global_assets/js/plugins/tables/datatables/datatables.min.js') }} "></script>
 
+    <script src="{{ asset('js/datatable.min.js') }} "></script>
+    
     <script src="{{ asset('assets/js/app.js') }} "></script>
     <script src="{{ asset('global_assets/js/demo_pages/form_select2.js') }}"></script>
     <script src="{{ asset('global_assets/js/demo_pages/form_wizard.js') }} "></script>
