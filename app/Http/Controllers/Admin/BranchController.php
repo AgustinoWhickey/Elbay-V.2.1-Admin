@@ -14,6 +14,11 @@ class BranchController extends Controller
     public function index()
     {
         $userData = json_decode(api_data_get($_ENV['API_URL'].'/branch?email='.Session::get('data')['email'].'&X-API-KEY=restapi123'));
+        $branches = array();
+
+        if($userData){
+            $branches = $userData->data->branches;
+        }
 
         return view('admin/branch/index', [
             'title' => 'Kelola Cabang',

@@ -100,7 +100,7 @@
 									<a href="/branch" class="nav-link {{ ($slug == 'kelola_cabang' ? 'active' : '') }}">Kelola Cabang</a>
 								</li>
 								<li class="nav-item">
-									<a href="#" class="nav-link">Pegawai Cabang</a>
+									<a href="/userbranch" class="nav-link {{ ($slug == 'pengelola_cabang' ? 'active' : '') }}">Pegawai Cabang</a>
 								</li>
 							</ul>
 						</li>
