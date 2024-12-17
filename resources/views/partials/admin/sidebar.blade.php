@@ -105,7 +105,7 @@
 							</ul>
 						</li>
 						<li class="nav-item">
-							<a href="/admin/dashboard" class="nav-link {{ ($slug == 'admin_home' ? 'active' : '') }}">
+							<a href="/supplier" class="nav-link {{ ($slug == 'kelola_supplier' ? 'active' : '') }}">
 								<i class="icon-truck"></i>
 								<span>
 									Supplier
