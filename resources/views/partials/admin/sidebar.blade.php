@@ -53,12 +53,12 @@
 								</span>
 							</a>
 						</li>
-						<li class="nav-item nav-item-submenu">
+						<li class="nav-item nav-item-submenu {{ in_array($slug, ['kelola_category', 'pengelola_cabang']) ? 'nav-item-open' : '' }}">
 							<a href="#" class="nav-link"><i class="icon-stack"></i> <span>Produk</span></a>
 
-							<ul class="nav nav-group-sub" data-submenu-title="Starter kit">
+							<ul class="nav nav-group-sub" style="display: {{ in_array($slug, ['kelola_category', 'pengelola_cabang']) ? 'block' : 'none' }};" data-submenu-title="Starter kit">
 								<li class="nav-item">
-									<a href="#" class="nav-link">Kategori</a>
+									<a href="/category" class="nav-link {{ ($slug == 'kelola_category' ? 'active' : '') }}">Kategori</a>
 								</li>
 								<li class="nav-item">
 									<a href="#" class="nav-link">Menu</a>
@@ -92,10 +92,10 @@
 								</li>
 							</ul>
 						</li>
-						<li class="nav-item nav-item-submenu {{ in_array($slug, ['kelola_cabang', 'hotel_transaksi_harian']) ? 'nav-item-open' : '' }}">
+						<li class="nav-item nav-item-submenu {{ in_array($slug, ['kelola_cabang', 'pengelola_cabang']) ? 'nav-item-open' : '' }}">
 							<a href="#" class="nav-link"><i class="icon-city"></i> <span>Cabang</span></a>
 
-							<ul class="nav nav-group-sub" style="display: {{ in_array($slug, ['kelola_cabang', 'hotel_transaksi_harian']) ? 'block' : 'none' }};" data-submenu-title="Starter kit">
+							<ul class="nav nav-group-sub" style="display: {{ in_array($slug, ['kelola_cabang', 'pengelola_cabang']) ? 'block' : 'none' }};" data-submenu-title="Starter kit">
 								<li class="nav-item">
 									<a href="/branch" class="nav-link {{ ($slug == 'kelola_cabang' ? 'active' : '') }}">Kelola Cabang</a>
 								</li>

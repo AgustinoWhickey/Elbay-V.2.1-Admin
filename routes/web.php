@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\BranchController;
 use App\Http\Controllers\Admin\UserBranchController;
 use App\Http\Controllers\Admin\SupplierController;
+use App\Http\Controllers\Admin\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,5 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('log
 Route::resource('/branch', BranchController::class)->middleware('loggedin');
 Route::resource('/userbranch', UserBranchController::class)->middleware('loggedin');
 Route::resource('/supplier', SupplierController::class)->middleware('loggedin');
+Route::resource('/category', CategoryController::class)->middleware('loggedin');
 
