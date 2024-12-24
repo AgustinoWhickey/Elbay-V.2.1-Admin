@@ -56,15 +56,15 @@
 						<li class="nav-item nav-item-submenu {{ in_array($slug, ['kelola_category', 'pengelola_cabang']) ? 'nav-item-open' : '' }}">
 							<a href="#" class="nav-link"><i class="icon-stack"></i> <span>Produk</span></a>
 
-							<ul class="nav nav-group-sub" style="display: {{ in_array($slug, ['kelola_category', 'pengelola_cabang']) ? 'block' : 'none' }};" data-submenu-title="Starter kit">
+							<ul class="nav nav-group-sub" style="display: {{ in_array($slug, ['kelola_category', 'kelola_item', 'kelola_menu']) ? 'block' : 'none' }};" data-submenu-title="Starter kit">
 								<li class="nav-item">
 									<a href="/category" class="nav-link {{ ($slug == 'kelola_category' ? 'active' : '') }}">Kategori</a>
 								</li>
 								<li class="nav-item">
-									<a href="#" class="nav-link">Menu</a>
+									<a href="/menu" class="nav-link {{ ($slug == 'kelola_menu' ? 'active' : '') }}">Menu</a>
 								</li>
 								<li class="nav-item">
-									<a href="#" class="nav-link">Item</a>
+									<a href="/item" class="nav-link {{ ($slug == 'kelola_item' ? 'active' : '') }}">Item</a>
 								</li>
 							</ul>
 						</li>
