@@ -24,7 +24,7 @@ class CategoryController extends Controller
         return view('admin/category/index', [
             'title' => 'Kelola Category',
             'slug' => 'kelola_category',
-            'categories' => $userData->data->categories,
+            'categories' => $categories,
         ]);
     }
 
