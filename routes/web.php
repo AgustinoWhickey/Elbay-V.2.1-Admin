@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\UserBranchController;
 use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ItemController;
+use App\Http\Controllers\Admin\StockController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +41,5 @@ Route::resource('/userbranch', UserBranchController::class)->middleware('loggedi
 Route::resource('/supplier', SupplierController::class)->middleware('loggedin');
 Route::resource('/category', CategoryController::class)->middleware('loggedin');
 Route::resource('/item', ItemController::class)->middleware('loggedin');
+Route::resource('/stock', StockController::class)->middleware('loggedin');
 

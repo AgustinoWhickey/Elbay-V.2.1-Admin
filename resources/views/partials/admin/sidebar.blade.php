@@ -68,7 +68,7 @@
 								</li>
 							</ul>
 						</li>
-						<li class="nav-item nav-item-submenu">
+						<li class="nav-item nav-item-submenu {{ in_array($slug, ['kelola_stock', 'kelola_sales']) ? 'nav-item-open' : '' }}">
 							<a href="#" class="nav-link"><i class="icon-table2"></i> <span>Transaksi</span></a>
 
 							<ul class="nav nav-group-sub" data-submenu-title="Starter kit">
@@ -76,7 +76,7 @@
 									<a href="#" class="nav-link">Sales</a>
 								</li>
 								<li class="nav-item">
-									<a href="#" class="nav-link">Stock In</a>
+									<a href="/stock" class="nav-link {{ ($slug == 'kelola_stock' ? 'active' : '') }}">Stock In</a>
 								</li>
 							</ul>
 						</li>
