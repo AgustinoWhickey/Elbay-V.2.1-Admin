@@ -17,6 +17,12 @@ var FormWizard = function() {
     // Setup module components
     //
 
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     // Wizard
     var _componentWizard = function() {
         if (!$().steps) {
@@ -25,7 +31,7 @@ var FormWizard = function() {
         }
 
         // Basic wizard setup
-        $('.steps-basic').steps({
+        $('.steps-menu').steps({
             headerTag: 'h6',
             bodyTag: 'fieldset',
             transitionEffect: 'fade',
@@ -35,8 +41,103 @@ var FormWizard = function() {
                 next: 'Next <i class="icon-arrow-right14 ml-2" />',
                 finish: 'Submit form <i class="icon-arrow-right14 ml-2" />'
             },
-            onFinished: function (event, currentIndex) {
-                alert('Form submitted.');
+            onFinished: function (event, currentIndex) {  
+                event.preventDefault();
+                const totalItems = [];
+
+                var status = 'Tambah';
+
+                var id = $('#id').val();
+                var old_image = $('#old_image').val();
+                var url = $('#url').val();
+                var urlMenuItem = $('#urlMenuItem').val();
+                var kode = $('#kode').val();
+                var nama = $('#name').val();
+                var kategori = $('#kategori').val();
+                var kadaluarsa = $('#exdate').val();
+                var harga = $('#harga').val();
+                var stok = $('#stok').val();
+                var useitem = $('#useitem').val();
+                var image = $('#image').prop('files')[0];
+
+                const regData = new FormData();
+                regData.append('id', id);
+                regData.append('old_image', old_image);
+                regData.append('name', nama);
+                regData.append('kode', kode);
+                regData.append('kategori', kategori);
+                regData.append('kadaluarsa', kadaluarsa);
+                regData.append('harga', harga);
+                regData.append('stock', stok);
+                regData.append('image', image);
+
+                if(useitem == 'on') {
+                    $("#tablebahan > tbody > tr").each(function () {
+                        totalItems.push({
+                            id : $(this).find('td').eq(4).find('input').val(),
+                            stock : $(this).find('td').eq(2).text(),
+                            qty : $(this).find('td').eq(3).text(),
+                         });
+                    });
+                    regData.append('items', JSON.stringify(totalItems));
+                }
+
+                if(id != ''){
+                    status = 'Edit';
+                }
+
+                if(regData.get('name') != '' && regData.get('kode') != ''){
+                    $.ajax({
+                        url: url,
+                        method: 'post',
+                        data: regData,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        dataType: 'json',
+                        success: function(response) {
+                            if(response.status){
+                                $.ajax({
+                                    type: "POST",
+                                    url: urlMenuItem,
+                                    data: {
+                                      product: id ? id : response.data,
+                                      items: JSON.stringify(totalItems),
+                                    },
+                                    success: function(data){
+                                        swal({
+                                            title: status+' Menu Sukses!',
+                                            text: 'Menu Baru Berhasil di '+status,
+                                            type: 'success',
+                                            timer: 2000,
+                                            showConfirmButton: false 
+                                        })
+                                        .then((value) => {
+                                            location.reload();
+                                        });
+                                    },error: function(response){
+                                        console.log(response);
+                                    }
+                                });
+                            }
+                        },
+                        error: function(response){
+                            console.log(response);
+                            swal({
+                                type: 'error',
+                                title: 'Input Data Gagal!',
+                                text: 'Silahkan Coba Beberapa Saat Lagi',
+                                timer: 2000,
+                            });
+                        }
+                    });
+                } else {
+                    swal({
+                        title: 'Pastikan semua sudah terisi!',
+                        text: 'Cek lagi form Anda',
+                        type: 'info'
+                    });
+                }
             }
         });
 

@@ -30,7 +30,10 @@
     <!-- Theme JS files -->
     <script src="{{ asset('global_assets/js/plugins/visualization/d3/d3.min.js') }} "></script>
     <script src="{{ asset('global_assets/js/plugins/visualization/d3/d3_tooltip.js') }} "></script>
+    <script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
     <script src="{{ asset('global_assets/js/plugins/forms/styling/switchery.min.js') }}"></script>
+    <script src="{{ asset('global_assets/js/plugins/forms/styling/switch.min.js') }}"></script>
+    <script src="{{ asset('global_assets/js/plugins/forms/wizards/steps.min.js') }}"></script>
     <script src="{{ asset('global_assets/js/plugins/forms/selects/bootstrap_multiselect.js') }}"></script>
     <script src="{{ asset('global_assets/js/plugins/ui/moment/moment.min.js') }}"></script>
     <script src="{{ asset('global_assets/js/plugins/pickers/daterangepicker.js') }}"></script>
@@ -46,7 +49,9 @@
 
     <script src="{{ asset('assets/js/app.js') }} "></script>
     <script src="{{ asset('global_assets/js/demo_pages/dashboard.js') }} "></script>
+    <script src="{{ asset('global_assets/js/demo_pages/form_wizard.js') }} "></script>
     <script src="{{ asset('global_assets/js/demo_pages/charts/echarts/columns_waterfalls.js') }} "></script>
+    <script src="{{ asset('global_assets/js/demo_pages/form_checkboxes_radios.js') }} "></script>
     
   </head>
   <body>

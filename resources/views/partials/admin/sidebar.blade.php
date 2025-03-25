@@ -53,21 +53,6 @@
 								</span>
 							</a>
 						</li>
-						<li class="nav-item nav-item-submenu {{ in_array($slug, ['kelola_category', 'pengelola_cabang']) ? 'nav-item-open' : '' }}">
-							<a href="#" class="nav-link"><i class="icon-stack"></i> <span>Produk</span></a>
-
-							<ul class="nav nav-group-sub" style="display: {{ in_array($slug, ['kelola_category', 'kelola_item', 'kelola_menu']) ? 'block' : 'none' }};" data-submenu-title="Starter kit">
-								<li class="nav-item">
-									<a href="/category" class="nav-link {{ ($slug == 'kelola_category' ? 'active' : '') }}">Kategori</a>
-								</li>
-								<li class="nav-item">
-									<a href="/menu" class="nav-link {{ ($slug == 'kelola_menu' ? 'active' : '') }}">Menu</a>
-								</li>
-								<li class="nav-item">
-									<a href="/item" class="nav-link {{ ($slug == 'kelola_item' ? 'active' : '') }}">Item</a>
-								</li>
-							</ul>
-						</li>
 						<li class="nav-item nav-item-submenu {{ in_array($slug, ['kelola_stock', 'kelola_sales']) ? 'nav-item-open' : '' }}">
 							<a href="#" class="nav-link"><i class="icon-table2"></i> <span>Transaksi</span></a>
 
@@ -82,7 +67,6 @@
 						</li>
 						<li class="nav-item nav-item-submenu">
 							<a href="#" class="nav-link"><i class="icon-file-text"></i> <span>Laporan</span></a>
-
 							<ul class="nav nav-group-sub" data-submenu-title="Starter kit">
 								<li class="nav-item">
 									<a href="#" class="nav-link">Sales</a>
@@ -104,13 +88,27 @@
 								</li>
 							</ul>
 						</li>
-						<li class="nav-item">
-							<a href="/supplier" class="nav-link {{ ($slug == 'kelola_supplier' ? 'active' : '') }}">
-								<i class="icon-truck"></i>
-								<span>
-									Supplier
-								</span>
-							</a>
+						<li class="nav-item nav-item-submenu {{ in_array($slug, ['kelola_supplier', 'kelola_category', 'kelola_item', 'kelola_menu']) ? 'nav-item-open' : '' }}">
+							<a href="#" class="nav-link"><i class="icon-cog"></i> <span>Setting</span></a>
+							<ul class="nav nav-group-sub" data-submenu-title="Starter kit">
+								<li class="nav-item">
+									<a href="/supplier" class="nav-link {{ ($slug == 'kelola_supplier' ? 'active' : '') }}">Supplier</a>
+								</li>
+								<li class="nav-item nav-item-submenu {{ in_array($slug, ['kelola_category', 'kelola_item', 'kelola_menu']) ? 'nav-item-open' : '' }}">
+									<a href="#" class="nav-link"> <span>Produk</span></a>
+									<ul class="nav nav-group-sub" data-submenu-title="Starter kit">
+										<li class="nav-item">
+											<a href="/category" class="nav-link {{ ($slug == 'kelola_category' ? 'active' : '') }}">Kategori</a>
+										</li>
+										<li class="nav-item">
+											<a href="/item" class="nav-link {{ ($slug == 'kelola_item' ? 'active' : '') }}">Item</a>
+										</li>
+										<li class="nav-item">
+											<a href="/menu" class="nav-link {{ ($slug == 'kelola_menu' ? 'active' : '') }}">Menu</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
 						</li>
 						<li class="nav-item">
 							<a href="/admin/dashboard" class="nav-link {{ ($slug == 'admin_home' ? 'active' : '') }}">

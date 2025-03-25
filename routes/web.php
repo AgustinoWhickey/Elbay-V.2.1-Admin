@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\StockController;
+use App\Http\Controllers\Admin\ProductItemController;
+use App\Http\Controllers\Admin\MenuItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,4 +44,6 @@ Route::resource('/supplier', SupplierController::class)->middleware('loggedin');
 Route::resource('/category', CategoryController::class)->middleware('loggedin');
 Route::resource('/item', ItemController::class)->middleware('loggedin');
 Route::resource('/stock', StockController::class)->middleware('loggedin');
+Route::resource('/menu', ProductItemController::class)->middleware('loggedin');
+Route::resource('/menuitem', MenuItemController::class)->middleware('loggedin');
 
