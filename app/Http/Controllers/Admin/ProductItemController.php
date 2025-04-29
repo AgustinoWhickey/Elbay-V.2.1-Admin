@@ -26,25 +26,13 @@ class ProductItemController extends Controller
             $items = $userData->data->items;
             $stocks = $userData->data->stocks;
 
-            $result = array();
-            foreach($stocks as $stock) {
-                $id = $stock->item_id;
-                if($stock->type=='in') {
-                    $result[$id][] = (int)$stock->qty;
-                } else {
-                    $result[$id][] = -(int)$stock->qty;
-                }
-            }
-
-            foreach($result as $key => $value) {
-                $newresult[] = array('item_id' => $key, 'qty' => array_sum($value));
-            }
+            $newresult = item_stocks($stocks);
 
             foreach($items as $item) {
                 $qtystock = 0;
                 foreach($newresult as $index => $value) {
                     if($item->id == $value['item_id']){
-                        $qtystock = $value['qty'];
+                        $qtystock = $value['stock'];
                     }
                 }
 

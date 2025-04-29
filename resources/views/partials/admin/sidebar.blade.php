@@ -58,10 +58,7 @@
 
 							<ul class="nav nav-group-sub" data-submenu-title="Starter kit">
 								<li class="nav-item">
-									<a href="#" class="nav-link">Sales</a>
-								</li>
-								<li class="nav-item">
-									<a href="/stock" class="nav-link {{ ($slug == 'kelola_stock' ? 'active' : '') }}">Stock In</a>
+									<a href="/sales" class="nav-link {{ ($slug == 'kelola_sales' ? 'active' : '') }}">Sales</a>
 								</li>
 							</ul>
 						</li>
@@ -72,7 +69,7 @@
 									<a href="#" class="nav-link">Sales</a>
 								</li>
 								<li class="nav-item">
-									<a href="#" class="nav-link">Stocks</a>
+									<a href="/stock" class="nav-link {{ ($slug == 'kelola_stock' ? 'active' : '') }}">Stocks</a>
 								</li>
 							</ul>
 						</li>

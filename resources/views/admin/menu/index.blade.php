@@ -323,6 +323,9 @@
         $('#add').on('click',function(){
             status = 'Tambah';
 
+            $('#menu_form')[0].reset(); 
+            $("#tablebahan tbody").html('');
+            
             $('#id').val('');
             $('#old_image').val('');
 

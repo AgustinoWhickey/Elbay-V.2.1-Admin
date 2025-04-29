@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -38,6 +38,10 @@
     <script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }} "></script>
 
     <script src="{{ asset('js/datatable.min.js') }} "></script>
+
+    <script src="{{ asset('global_assets/js/plugins/notifications/sweet_alert.min.js') }}"></script>
+
+    <script src="{{ asset('global_assets/js/demo_pages/extra_sweetalert.js') }}"></script>
     
     <script src="{{ asset('assets/js/app.js') }} "></script>
     <script src="{{ asset('global_assets/js/demo_pages/form_select2.js') }}"></script>

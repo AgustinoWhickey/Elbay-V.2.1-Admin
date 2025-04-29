@@ -215,7 +215,7 @@ body {
 .sidebar {
   -ms-flex: 0 0 auto;
       flex: 0 0 auto;
-  width: 16.875rem;
+  width: 13.875rem;
   z-index: 1040; }
   .sidebar:not(.sidebar-component) {
     position: fixed;

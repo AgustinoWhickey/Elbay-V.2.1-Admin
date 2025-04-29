@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\StockController;
 use App\Http\Controllers\Admin\ProductItemController;
 use App\Http\Controllers\Admin\MenuItemController;
+use App\Http\Controllers\Admin\SalesController;
+use App\Http\Controllers\Admin\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,8 +44,19 @@ Route::resource('/branch', BranchController::class)->middleware('loggedin');
 Route::resource('/userbranch', UserBranchController::class)->middleware('loggedin');
 Route::resource('/supplier', SupplierController::class)->middleware('loggedin');
 Route::resource('/category', CategoryController::class)->middleware('loggedin');
-Route::resource('/item', ItemController::class)->middleware('loggedin');
-Route::resource('/stock', StockController::class)->middleware('loggedin');
 Route::resource('/menu', ProductItemController::class)->middleware('loggedin');
 Route::resource('/menuitem', MenuItemController::class)->middleware('loggedin');
+
+Route::resource('/stock', StockController::class)->middleware('loggedin');
+Route::post('/stock/menu', [StockController::class, 'updateStockMenu']);
+
+Route::resource('/sales', SalesController::class)->middleware('loggedin');
+Route::post('/sales/processpayment', [SalesController::class, 'processPayment']);
+Route::get('/sales/print/{id}', [SalesController::class, 'cetak']);
+
+Route::resource('/item', ItemController::class)->middleware('loggedin');
+Route::post('/item/category', [ItemController::class, 'byCategory']);
+
+Route::resource('/cart', CartController::class)->middleware('loggedin');
+
 

@@ -50,8 +50,8 @@
                                     <td>{{ $stock->item_stock }}</td>
                                     <td>{{ $stock->detail }}</td>
                                     <td style="width: 15%;">
-                                        <button type="button" class="btn btn-xs btn-info edit-stock" data-id="<?= $stock->id ?>">Edit</button>
-                                        <button type="button" class="btn btn-xs btn-danger delete-stock" data-id="<?= $stock->id ?>">Delete</button>
+                                    {!! ($stock->type == "in" ? "<button type='button' class='btn btn-xs btn-info edit-stock' data-id='$stock->id'>Edit</button>" : "") !!}
+                                        <!-- <button type="button" class="btn btn-xs btn-danger delete-stock" data-id="<?= $stock->id ?>">Delete</button> -->
                                     </td>
                                 </tr>
                             @endforeach
@@ -168,7 +168,6 @@
                     processData: false,
                     dataType: 'json',
                     success: function(response) {
-                        console.log(response);
                         if(response.status == true){
                             swal({
                                 title: status+' Item Sukses!',
@@ -178,9 +177,33 @@
                                 showConfirmButton: false 
                             })
                             .then((value) => {
-                                location.reload();
+                                $.ajax({
+                                    url: '{{ env('APP_URL') }}/stock/menu',
+                                    type: 'POST',
+                                    data: {
+                                        "_token": "{{ csrf_token() }}",
+                                        id: regData.get('name'),
+                                    },
+                                    success: function(data){
+                                        console.log(data);
+                                        // swal({
+                                        //     type: 'success',
+                                        //     title: 'Transaksi Berhasil!',
+                                        //     text: 'Transaksi Telah Diproses',
+                                        //     timer: 2000,
+                                        //     showConfirmButton: false 
+                                        // })
+                                        // .then((value) => {
+                                        //     location.reload();
+                                        // });
+                                    }, error: function(data) {
+                                        console.log(data);
+                                    }
+                                });
                             });
                         }
+                    }, error: function(data) {
+                        console.log(data);
                     }
                 });
             } else {
@@ -194,6 +217,9 @@
 
         $('#add').on('click',function(){
             status = 'Tambah';
+
+            $('#stock_form')[0].reset(); 
+            $('#id').val('');
 
             $('.add-stock').show();
             $('.stock-edit').hide();

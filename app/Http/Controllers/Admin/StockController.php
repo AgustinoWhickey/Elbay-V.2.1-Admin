@@ -24,25 +24,14 @@ class StockController extends Controller
             $stocks = $userData->data->stocks;
             $suppliers = $userData->data->suppliers;
             $unititems = $userData->data->unititems;
-            $result = array();
-            foreach($stocks as $stock) {
-                $id = $stock->item_id;
-                if($stock->type=='in') {
-                    $result[$id][] = (int)$stock->qty;
-                } else {
-                    $result[$id][] = -(int)$stock->qty;
-                }
-            }
 
-            foreach($result as $key => $value) {
-                $newresult[] = array('item_id' => $key, 'qty' => array_sum($value));
-            }
+            $newresult = item_stocks($stocks);
 
             foreach($stocks as $stock) {
                 $qtystock = 0;
                 foreach($newresult as $index => $value) {
                     if($stock->item_id == $value['item_id']){
-                        $qtystock = $value['qty'];
+                        $qtystock = $value['stock'];
                     }
                 }
 
@@ -87,6 +76,8 @@ class StockController extends Controller
 
     public function store(StorePostRequest $request)
     {
+        // product_stock($request->name);
+
         $data = [
             'item_id' => $request->name,
             'type' => 'in',
@@ -98,7 +89,7 @@ class StockController extends Controller
             'X-API-KEY' => 'restapi123'
         ];
 
-        if($request->id) {
+        if($request->id != '' || $request->id != null) {
             $data["stock_id"] = $request->id;
             api_data_put($_ENV['API_URL']."/stock", $data);
         } else {
@@ -106,6 +97,12 @@ class StockController extends Controller
         }   
 
     }
+
+    public function updateStockMenu(StorePostRequest $request)
+	{
+        product_stock($request->id);
+
+	}
 
     public function edit($stockid)
     {

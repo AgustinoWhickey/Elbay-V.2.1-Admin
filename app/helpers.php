@@ -96,3 +96,109 @@ function api_data_post($url, $params){
 	$result = "Rp. ".number_format($nominal, 0, ',', '.');
 	return $result;
  }
+
+ function item_stocks($items){
+   $result = array();
+   foreach($items as $stock) {
+      $id = $stock->item_id;
+      if($stock->type=='in') {
+            $result[$id][] = (int)$stock->qty;
+      } else {
+            $result[$id][] = -(int)$stock->qty;
+      }
+   }
+
+   $newresult = [];
+   foreach($result as $key => $value) {
+      $newresult[] = array('item_id' => $key, 'stock' => array_sum($value));
+   }
+
+   return $newresult;
+ }
+
+ function product_stock($id) {
+   $itemByProductId = array();
+   $itemByItemId = array();
+   $itemStocks = array();
+   $getMenuItem = json_decode(api_data_get($_ENV['API_URL'].'/itemmenu?email='.Session::get('data')['email'].'&iditem='.$id.'&X-API-KEY=restapi123'));
+   if($getMenuItem->data->item_by_itemid) {
+      $itemByItemId = $getMenuItem->data->item_by_itemid;
+      $itemStocks = $getMenuItem->data->stocks;
+   }
+
+   $newresult = item_stocks($itemStocks);
+   
+   $stockresult = array();
+   foreach($itemByItemId as $val){
+   $getMenu = json_decode(api_data_get($_ENV['API_URL'].'/itemmenu?email='.Session::get('data')['email'].'&id='.$val->product_id.'&X-API-KEY=restapi123'));
+      if($getMenu->data->item_menus) {
+            $itemByProductId = $getMenu->data->item_menus;
+      }
+      $stockbahan = array();
+
+      foreach($itemByProductId as $item) {
+            $qtystock = 0;
+            foreach($newresult as $index => $value) {
+               if($item->item_id == $value['item_id']){
+                  $qtystock = $value['stock'];
+                  array_push($stockbahan, intval($qtystock/(int)$item->qty));
+               }
+            }
+
+            array_push($stockresult, min($stockbahan));
+         
+      }
+      $data = [
+            'id' => (int)$item->product_id,
+            'stock' => min($stockresult),
+            'type' => 'update_stock',
+            'X-API-KEY' => 'restapi123'
+      ];
+
+      api_data_put($_ENV['API_URL']."/menuitem", $data);
+
+   }
+
+ }
+
+ function product_stock_by_sale($id) {
+   $saleresult = array();
+   $getSaleDetail = json_decode(api_data_get($_ENV['API_URL'].'/saledetail?email='.Session::get('data')['email'].'&id='.$id.'&X-API-KEY=restapi123'));
+   if($getSaleDetail->data->saledetail) {
+      $saleresult = $getSaleDetail->data->saledetail;
+   }
+   
+   foreach($saleresult as $sale) {
+      $itemByProductId = array();
+      $itemStocks = array();
+         $getMenu = json_decode(api_data_get($_ENV['API_URL'].'/itemmenu?email='.Session::get('data')['email'].'&id='.$sale->item_id.'&X-API-KEY=restapi123'));
+         if($getMenu->data->item_menus) {
+               $itemByProductId = $getMenu->data->item_menus;
+         }
+
+         if(count($itemByProductId) > 0){
+            foreach($itemByProductId as $item){
+               $data = [
+                  'item_id' => $item->item_id,
+                  'type' => 'out',
+                  'detail' => 'Pembelian Produk '.$sale->name,
+                  'supplier_id' => '',
+                  'qty' => $item->qty,
+                  'user_id' => Session::get('data')['user_id'],
+                  'date' => strtotime('now'),
+                  'X-API-KEY' => 'restapi123'
+            ];
+            product_stock($item->item_id);
+            api_data_post($_ENV['API_URL']."/stock", $data);
+            }
+         } else {
+            $data = [
+               'id' => $sale->item_id,
+               'type' => 'stockout',
+               'stock' => $sale->qty,
+               'X-API-KEY' => 'restapi123'
+         ];
+            api_data_put($_ENV['API_URL']."/menuitem", $data);
+         }
+      }
+}

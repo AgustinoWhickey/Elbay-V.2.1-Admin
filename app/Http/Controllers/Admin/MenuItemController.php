@@ -65,25 +65,13 @@ class MenuItemController extends Controller
             $stocks = $getData->data->stocks;
             $menus = $getData->data->item_menus;
 
-            $result = array();
-            foreach($stocks as $stock) {
-                $id = $stock->item_id;
-                if($stock->type=='in') {
-                    $result[$id][] = (int)$stock->qty;
-                } else {
-                    $result[$id][] = -(int)$stock->qty;
-                }
-            }
-
-            foreach($result as $key => $value) {
-                $newresult[] = array('item_id' => $key, 'qty' => array_sum($value));
-            }
+            $newresult = item_stocks($stocks);
 
             foreach($menus as $menu) {
                 $qtystock = 0;
                 foreach($newresult as $index => $value) {
                     if($menu->id == $value['item_id']){
-                        $qtystock = $value['qty'];
+                        $qtystock = $value['stock'];
                     }
                 }
 
@@ -114,25 +102,13 @@ class MenuItemController extends Controller
             $stocks = $getData->data->stocks;
             $menus = $getData->data->menus;
 
-            $result = array();
-            foreach($stocks as $stock) {
-                $id = $stock->item_id;
-                if($stock->type=='in') {
-                    $result[$id][] = (int)$stock->qty;
-                } else {
-                    $result[$id][] = -(int)$stock->qty;
-                }
-            }
-
-            foreach($result as $key => $value) {
-                $newresult[] = array('item_id' => $key, 'qty' => array_sum($value));
-            }
+            $newresult = item_stocks($stocks);
 
             foreach($menus as $menu) {
                 $qtystock = 0;
                 foreach($newresult as $index => $value) {
                     if($menu->id == $value['item_id']){
-                        $qtystock = $value['qty'];
+                        $qtystock = $value['stock'];
                     }
                 }
 
@@ -149,10 +125,6 @@ class MenuItemController extends Controller
                 ];
             }
 
-            echo "<pre>";
-            print_r($menus);
-            echo "</pre>";
-            exit;
         }
 
 		echo json_encode($data);
