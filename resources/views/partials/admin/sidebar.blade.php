@@ -46,7 +46,7 @@
 						<!-- Main -->
 						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Main</div> <i class="icon-menu" title="Main"></i></li>
 						<li class="nav-item">
-							<a href="/admin/dashboard" class="nav-link {{ ($slug == 'admin_home' ? 'active' : '') }}">
+							<a href="/dashboard" class="nav-link {{ ($slug == 'admin_home' ? 'active' : '') }}">
 								<i class="icon-home4"></i>
 								<span>
 									Dashboard
@@ -66,7 +66,7 @@
 							<a href="#" class="nav-link"><i class="icon-file-text"></i> <span>Laporan</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="Starter kit">
 								<li class="nav-item">
-									<a href="#" class="nav-link">Sales</a>
+									<a href="/report/sales" class="nav-link">Sales</a>
 								</li>
 								<li class="nav-item">
 									<a href="/stock" class="nav-link {{ ($slug == 'kelola_stock' ? 'active' : '') }}">Stocks</a>

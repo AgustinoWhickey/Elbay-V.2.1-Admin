@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\ProductItemController;
 use App\Http\Controllers\Admin\MenuItemController;
 use App\Http\Controllers\Admin\SalesController;
 use App\Http\Controllers\Admin\CartController;
+use App\Http\Controllers\Admin\Report\SalesReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,5 +59,7 @@ Route::resource('/item', ItemController::class)->middleware('loggedin');
 Route::post('/item/category', [ItemController::class, 'byCategory']);
 
 Route::resource('/cart', CartController::class)->middleware('loggedin');
+
+Route::resource('/report/sales', SalesReportController::class)->middleware('loggedin');
 
 

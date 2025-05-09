@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
     <link href="{{ asset('global_assets/css/icons/icomoon/styles.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('global_assets/css/icons/fontawesome/styles.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('global_assets/css/extras/jquery-ui.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/bootstrap_limitless.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/layout.min.css') }}" rel="stylesheet" type="text/css">
@@ -38,8 +39,12 @@
     <script src="{{ asset('global_assets/js/plugins/ui/moment/moment.min.js') }}"></script>
     <script src="{{ asset('global_assets/js/plugins/pickers/daterangepicker.js') }}"></script>
     <script src="{{ asset('global_assets/js/plugins/extensions/jquery_ui/interactions.min.js') }}"></script>
+    <script src="{{ asset('global_assets/js/plugins/extensions/jquery_ui/widgets.min.js') }}"></script>
     <script src="{{ asset('global_assets/js/plugins/forms/selects/select2.min.js') }}"></script>
     <script src="{{ asset('global_assets/js/plugins/visualization/echarts/echarts.min.js') }}"></script>
+    
+    <script src="../../../../global_assets/js/plugins/pickers/pickadate/picker.js"></script>
+	  <script src="../../../../global_assets/js/plugins/pickers/pickadate/picker.date.js"></script>
 
     <script src="{{ asset('js/datatables.min.js') }} "></script>
 
@@ -52,6 +57,8 @@
     <script src="{{ asset('global_assets/js/demo_pages/form_wizard.js') }} "></script>
     <script src="{{ asset('global_assets/js/demo_pages/charts/echarts/columns_waterfalls.js') }} "></script>
     <script src="{{ asset('global_assets/js/demo_pages/form_checkboxes_radios.js') }} "></script>
+    <script src="{{ asset('global_assets/js/demo_pages/picker_date.js') }} "></script>
+    <script src="{{ asset('global_assets/js/demo_pages/job_apply.js') }} "></script>
     
   </head>
   <body>
